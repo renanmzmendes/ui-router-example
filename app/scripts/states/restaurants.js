@@ -40,7 +40,6 @@ angular.module('app.restaurants')
 				parent: 'authenticated',
 				url: '/restaurants/:id',
 				templateUrl: 'views/show.html',
-				controller: 'RestaurantsShow',
 				resolve: {
 					restaurant: function (user, Restaurant, $stateParams, $state) {
 						console.log('Resolving restaurant ' + $stateParams.id);
@@ -53,6 +52,19 @@ angular.module('app.restaurants')
 								}
 							});
 					}
+				},
+				views: {
+					'': {
+						controller: 'RestaurantsShow',
+						templateUrl: 'views/show.html'
+					},
+					'description@show': {
+						templateUrl: 'views/description.html'	
+					},
+					'otherView@show': {
+						template: 'ToBeContinued'
+					}
 				}
+				
 			});
 	});
