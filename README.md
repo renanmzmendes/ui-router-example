@@ -5,7 +5,7 @@ version 0.11.1.
 
 ## Build & development
 
-`cd` into the projects directory
+`cd` into the project's directory
 
 Run `npm install`
 
