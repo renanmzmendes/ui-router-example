@@ -9,4 +9,7 @@ angular.module('app.restaurants')
 	}])
 	.controller('RestaurantsListResolve', ['restaurants', '$scope', function (restaurants, $scope) {
 		$scope.restaurants = restaurants;
+	}])
+	.controller('RestaurantsShow', ['restaurant', '$scope', function (restaurant, $scope) {
+		$scope.restaurant = restaurant;
 	}]);

@@ -38,7 +38,7 @@ angular.module('app.restaurants')
 			var def = $q.defer();
 
 			$timeout(function () {
-				def.resolve(_.find(_restaurants, function (el) { return el.id === id; }));
+				def.resolve(_.find(_restaurants, function (el) { return el.id.toString() === id.toString(); }));
 			}, 1000);
 
 			return def.promise;

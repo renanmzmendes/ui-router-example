@@ -2,6 +2,6 @@
 
 <ul>
 	<li ng-repeat="restaurant in restaurants">
-		Id: {{ restaurant.id }}, Name: {{ restaurant.name }}, Address: {{ restaurant.address }}
+		<a ui-sref="show({ id: restaurant.id })">Id: {{ restaurant.id }}</a>, Name: {{ restaurant.name }}
 	</li>
 </ul>
