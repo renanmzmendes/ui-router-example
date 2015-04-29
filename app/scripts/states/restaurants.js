@@ -7,17 +7,12 @@ angular.module('app.restaurants')
 			.state('restaurants', {
 				url: '/restaurants',
 				templateUrl: 'views/restaurants.html',
-				controller: 'RestaurantsListClassic'
-				// resolve: {
-				// 	restaurants: function (Restaurant) {
-				// 		console.log('Resolving restaurants');
-				// 		return Restaurant.list();
-				// 	}
-				// }
+				controller: 'RestaurantsListResolve'
+				resolve: {
+					restaurants: function (Restaurant) {
+						console.log('Resolving restaurants');
+						return Restaurant.list();
+					}
+				}
 			});
-			// .state('restaurants.list.classic', {
-			// 	url: '/restaurants-classic',
-			// 	templateUrl: 'views/restaurants.html',
-			// 	controller: 'RestaurantsListClassic'
-			// });
 	});
