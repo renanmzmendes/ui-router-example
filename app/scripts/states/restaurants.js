@@ -6,13 +6,17 @@ angular.module('app.restaurants')
 		$stateProvider
 			.state('authenticated', {
 				abstract: true,
-				template: '<ui-view></ui-view>',
+				// template: '<ui-view></ui-view>',
+				templateUrl: 'views/authenticated.html',
+				controller: 'Authenticated',
 				resolve: {
-					authenticated: function (User, $state) {
+					user: function (User, $state) {
 						console.log('Resolving is authenticated');
 						return User.isLoggedIn()
-							.then(function () {
+							.then(function (user) {
 								console.log('Is authenticated');
+								console.log(user);
+								return user;
 							}).catch(function () {
 								$state.go('main');
 							});
@@ -26,7 +30,7 @@ angular.module('app.restaurants')
 				templateUrl: 'views/restaurants.html',
 				controller: 'RestaurantsListResolve',
 				resolve: {
-					restaurants: function (authenticated, Restaurant) {
+					restaurants: function (user, Restaurant) {
 						console.log('Resolving restaurants');
 						return Restaurant.list();
 					}
@@ -38,7 +42,7 @@ angular.module('app.restaurants')
 				templateUrl: 'views/show.html',
 				controller: 'RestaurantsShow',
 				resolve: {
-					restaurant: function (authenticated, Restaurant, $stateParams, $state) {
+					restaurant: function (user, Restaurant, $stateParams, $state) {
 						console.log('Resolving restaurant ' + $stateParams.id);
 						return Restaurant.get($stateParams.id)
 							.then(function (restaurant) {

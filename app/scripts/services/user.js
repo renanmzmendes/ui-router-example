@@ -8,8 +8,8 @@ angular.module('app.user')
 
 			var def = $q.defer();
 
-			// def.resolve({ user: 'renan.mendes@maplink.com.br' });
-			def.reject();
+			def.resolve({ email: 'renan.mendes@maplink.com.br' });
+			// def.reject();
 
 			return def.promise;
 		};
